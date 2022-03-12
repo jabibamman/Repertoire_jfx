@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="vbox" alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bloc2.javafx_tp2.fenetre.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <AnchorPane prefHeight="200.0" prefWidth="200.0">
+      <children>
+          <Button fx:id="bAjout" layoutY="186.0" onAction="#onButtonAjout" text="AJOUT" />
+         <Button fx:id="bAffprec" layoutX="77.0" layoutY="186.0" onAction="#onButtonPrec" text="&lt;&lt;" />
+         <Button fx:id="bAffsuiv" layoutX="188.0" layoutY="186.0" onAction="#onButtonSuiv" text="&gt;&gt;" />
+         <Button fx:id="bQuitter" layoutX="237.0" layoutY="186.0" onAction="#onButtonQuitter" text="QUITTER" />
+         <Label layoutX="29.0" text="NOM" />
+         <TextField fx:id="nom" layoutX="77.0" layoutY="-4.0" />
+         <Label layoutX="18.0" layoutY="40.0" text="PRENOM" />
+         <TextField fx:id="prenom" layoutX="77.0" layoutY="35.0" />
+         <Label layoutX="16.0" layoutY="79.0" text="ADRESSE" />
+         <TextField fx:id="rue" layoutX="77.0" layoutY="74.0" prefHeight="26.0" prefWidth="81.0" />
+         <TextField fx:id="cp" layoutX="162.0" layoutY="74.0" prefHeight="26.0" prefWidth="52.0" />
+         <TextField fx:id="ville" layoutX="219.0" layoutY="75.0" prefHeight="26.0" prefWidth="81.0" />
+         <Label layoutY="125.0" text="TELEPHONE" />
+         <TextField fx:id="tel" layoutX="77.0" layoutY="120.0" />
+         <Button fx:id="raz" layoutX="129.0" layoutY="186.0" onAction="#onButtonRaz" text="RAZ" />
+         <Label layoutX="15.0" layoutY="157.0" text="E-MAIL" />
+         <TextField fx:id="email" layoutX="77.0" layoutY="152.0" />
+      </children>
+   </AnchorPane>
+</VBox>
