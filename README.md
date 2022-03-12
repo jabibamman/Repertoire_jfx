@@ -71,7 +71,7 @@ Screenshot de l'application :<br>
 
 [![Screenshot de l'application][product-screenshot1]](https://abib-james.fr)
 
-Screenchot du modèle de donnée :<br>
+Screenshot du modèle de donnée :<br>
 
 [![Modele de donnee de la BDD][product-screenshot2]](https://abib-james.fr)
 </div>
