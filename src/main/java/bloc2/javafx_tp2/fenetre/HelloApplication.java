@@ -21,8 +21,5 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) throws SQLException {
         launch();
-
-        Passerrelle p = new Passerrelle();
-        System.out.println(p.chargeRepertoire());
     }
 }

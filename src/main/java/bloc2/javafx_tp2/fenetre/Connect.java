@@ -5,14 +5,18 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Connect {
-    public static Connection conn;
+    public static Connection conn; // Variable qui enregistre la connexion à la base de données
 
     public Connect(Connection conn) {
         this.conn = conn;
     }
 
+    /**
+     * @return Connection - on return la connexion
+     * @desc crée la connexion à la base de donnée si nécessaire et qui la renvoie
+     */
     public static Connection get() throws SQLException {
-        conn = DriverManager.getConnection("jdbc:mysql://localhost/repertoire    ","root","root");
+        conn = DriverManager.getConnection("jdbc:mysql://localhost/repertoire", "root", "root");
 
         return conn;
     }

@@ -7,14 +7,16 @@ import java.util.Collections;
 public class Repertoire {
     ArrayList<Personne> liste;
 
+
     public Repertoire() throws SQLException {
-        this.liste = Passerrelle.chargeRepertoire();
+        this.liste = Passerrelle.chargeRepertoire();  // Ici on instance la la liste par ce que l'on a récupéré dans la BDD avec la methode chargeRepertoire()
     }
 
+    // Permet d'ajouter une perssonne dans le repertoire
     public void ajoutePersonne(Personne p) throws SQLException {
         this.liste.add(p);
 
-        Passerrelle.ajoutePersonne(p);
+        Passerrelle.ajoutePersonne(p);    // Dès qu'une personne est ajoutée elle est aussi ajoutée via cette fonction dans la bdd
 
         Collections.sort(liste);
     }
