@@ -8,7 +8,7 @@ public class Connect {
     public static Connection conn; // Variable qui enregistre la connexion à la base de données
 
     public Connect(Connection conn) {
-        this.conn = conn;
+        Connect.conn = conn;
     }
 
     /**

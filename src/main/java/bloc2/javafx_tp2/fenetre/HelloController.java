@@ -17,7 +17,7 @@ public class HelloController implements Initializable {
     private VBox vbox;
 
     @FXML
-    private Button bQuitter,bAjout, bAffprec, bAffsuiv;
+    private Button bQuitter, bAjout, bAffprec, bAffsuiv;
 
     @FXML
     private TextField nom, prenom, rue, cp, ville, tel, email;
@@ -35,10 +35,8 @@ public class HelloController implements Initializable {
             e.printStackTrace();
         }
 
-
         // Ici on initialise numCourant à 0...
         numCourant = 0;
-
     }
 
     // Ici on utilise la fonction qui va nous faire quitter l'application
@@ -51,36 +49,28 @@ public class HelloController implements Initializable {
     @FXML
     private void onButtonAjout(ActionEvent e) throws SQLException {
         // ici on crée une adresse, la personne puis on l'ajoute au repertoire...
-        Adresse a1 = new Adresse(rue.getText(),cp.getText(), ville.getText());
-        Personne p1 = new Personne(nom.getText(),prenom.getText(), a1, tel.getText(), email.getText());
+        Adresse a1 = new Adresse(rue.getText(), cp.getText(), ville.getText());
+        Personne p1 = new Personne(nom.getText(), prenom.getText(), a1, tel.getText(), email.getText());
         rep.ajoutePersonne(p1);
-        // On aurait pu faire plus court comme ça :
-// rep.ajoutePersonne(new Personne(nom.getText(),prenom.getText(), new Adresse(rue.getText(),cp.getText(), ville.getText()), tel.getText()));
 
-        System.out.println(p1.getPrenom()+" à bien été rajouté au repertoire");
+        System.out.println(p1.getPrenom() + " à bien été rajouté au repertoire");
 
         // Lors de chaque ajout on affecte la taille de la colletion au numcourant, pour pouvoir afficher la dernière personne crée..
         numCourant = rep.getTailleCollection();
 
         // [DEBUG ONLY] Permet de vérifier le repertoire et de voir si les perosnnes sont bien ajoutés ou non
-        System.out.println(rep);
+        // System.out.println(rep);
 
         // Permet de remettre les textarea en vide lors d'un ajout d'une personne
-        nom.setText("");
-        prenom.setText("");
-        rue.setText("");
-        cp.setText("");
-        ville.setText("");
-        tel.setText("");
-        email.setText("");
+        this.setAllTextEmpty();
     }
 
     @FXML
     private void onButtonPrec(ActionEvent e) {
         // Cette condition permet de dire qu'il faut absolument que l'index "numCourant" soit superieur à 0 car un index negatif est impossible...
-        if(numCourant > 0) {
+        if (numCourant > 0) {
             // On incrémente de - 1 num courant dès que l'user clique sur le bouton precedent
-            numCourant-=1;
+            numCourant -= 1;
 
             // On affecte donc les coordonnées de la personne précédente, avec la fonction recherche_personne que l'on avait crée en amont
             nom.setText(rep.recherche_personne(numCourant).getNom());
@@ -92,8 +82,8 @@ public class HelloController implements Initializable {
             email.setText(rep.recherche_personne(numCourant).getEmail());
 
 
-            // Ce else if permet de retourner une erreur si le numéro de l'index est inferieur a 0 ce qui serait impossiblr
-        }else if(numCourant-1 < 0) {
+            // Ce else if permet de retourner une erreur si le numéro de l'index est inferieur a 0 ce qui serait impossible
+        } else if (numCourant - 1 < 0) {
             System.err.println("Error 258: Vous êtes arrivé à la première page.");
 
             // On crée une alerte pour bien indiquer au client qu'il est sur la première page (le point bonus ^^)
@@ -106,9 +96,9 @@ public class HelloController implements Initializable {
 
     @FXML
     private void onButtonSuiv(ActionEvent e) {
-        // Ici c'est le même procédé mais on incrémente de + 1
-        if(numCourant < rep.getTailleCollection() && numCourant+1< rep.getTailleCollection() ) {
-            numCourant+=1;
+        // Ici, c'est le même procédé, mais on incrémente de + 1
+        if (numCourant < rep.getTailleCollection() && numCourant + 1 < rep.getTailleCollection()) {
+            numCourant += 1;
 
             nom.setText(rep.recherche_personne(numCourant).getNom());
             prenom.setText(rep.recherche_personne(numCourant).getPrenom());
@@ -118,8 +108,8 @@ public class HelloController implements Initializable {
             tel.setText(rep.recherche_personne(numCourant).getTelephone());
             email.setText(rep.recherche_personne(numCourant).getEmail());
 
-            // Ici on indque une erreur pour dire que l'on est à la dernière page.
-        }else if(numCourant+1 >= rep.getTailleCollection()) {
+            // Ici on indique une erreur pour dire que l'on est à la dernière page.
+        } else if (numCourant + 1 >= rep.getTailleCollection()) {
             System.err.println("Error 404: Vous êtes arrivé à la denière page.");
 
             Alert alert = new Alert(Alert.AlertType.ERROR, "ERREUR");
@@ -128,9 +118,13 @@ public class HelloController implements Initializable {
         }
     }
 
-
+    @FXML
     public void onButtonRaz(ActionEvent e) {
         // Permet de remettre les textarea en vide lors d'un ajout d'une personne
+        this.setAllTextEmpty();
+    }
+
+    public void setAllTextEmpty() {
         nom.setText("");
         prenom.setText("");
         rue.setText("");
@@ -139,4 +133,5 @@ public class HelloController implements Initializable {
         tel.setText("");
         email.setText("");
     }
+
 }

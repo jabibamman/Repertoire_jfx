@@ -74,11 +74,7 @@ public class Personne implements Comparable<Personne>{
 
     @Override
     public int compareTo(Personne p) {
-        if(this.nom.equals(p.getNom())) {
-            return prenom.compareTo(p.getPrenom());
-        }else{
-            return nom.compareTo(p.getNom());
-        }
+        return this.nom.equals(p.getNom()) ? prenom.compareTo(p.getPrenom()) : nom.compareTo(p.getNom());
     }
 
 }
